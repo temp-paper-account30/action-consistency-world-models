@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Action Consistency World Models</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Action Consistency World Models</h1>
+  <p class="byline">Anonymous authors. Under review.</p>
+</header>
+<main>
+  <section id="task">
+    <h2>Task</h2>
+    <p>A four-fingered hand rotates an object to a goal orientation, observing one camera and its joint angles. Simulator rollouts of the expert policy.</p>
+    <div class="gallery small" data-section="task"></div>
+  </section>
+  <section id="open-loop">
+    <h2>Open-loop rollouts</h2>
+    <p>Recorded actions replayed in both engines from the same 2 s context. The trace is the frozen policy's action difference on imagined versus real frames, normalized by the recorded actions' magnitude.</p>
+    <div class="gallery" data-section="open" data-panels></div>
+  </section>
+  <section id="closed-loop">
+    <h2>Closed-loop rollouts</h2>
+    <p>The policy acts inside the simulator and inside the world model from the same 2 s context. Each clip is 120 steps at 12 Hz. The trace is the per-frame action divergence between the two engines, with the simulator's own re-run in gray. Labels give the true success rate of the model's training policy and of the evaluated policy.</p>
+    <div class="gallery" data-section="closed" data-panels></div>
+  </section>
+  <section id="held-out">
+    <h2>Held-out policies</h2>
+    <p>A model trained on a strong policy evaluates weak policies faithfully. A model trained on a weak policy breaks when a strong policy drives it.</p>
+    <div class="gallery" data-section="heldout" data-panels></div>
+  </section>
+  <section id="failures">
+    <h2>Failure cases</h2>
+    <p>The object leaves the hand and the model keeps it in place, or a strong policy inside a weak model dissolves the object.</p>
+    <div class="gallery" data-section="failures" data-panels></div>
+  </section>
+</main>
+<footer></footer>
+<script src="media/manifest.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
